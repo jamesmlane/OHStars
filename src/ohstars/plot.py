@@ -59,7 +59,7 @@ def staircase_plot(data,
     
     # Check if the figure was provided
     if fig == None:
-        fig = plt.figure( figsize=( int(n_var+3), int(n_var+3) ) )
+        fig = plt.figure( figsize=( int(n_var+4), int(n_var+4) ) )
     ##fi
     if ax == None:
         axs = fig.subplots( nrows=n_var, ncols=n_var )
