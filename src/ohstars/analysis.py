@@ -62,7 +62,7 @@ def sample_kinematics( data,
     
     Returns:
         samples (mxn array) - The m samples by n variables array
-        cov (5x5 array) - The covariance matrix used.
+        cov (5x5 array) - The covariance matrix used
     '''
     
     # Assume the structure of the gaia_source data
