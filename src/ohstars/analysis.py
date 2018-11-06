@@ -47,7 +47,7 @@ from matplotlib import pyplot as plt
 # ----------------------------------------------------------------------------
 
 def sample_kinematics( data,
-                       n_samp = 1000,
+                       n_samples = 1000,
                     ):
     '''
     sample_kinematics
@@ -58,7 +58,7 @@ def sample_kinematics( data,
     Args:
         data (astropy row) - A queriable Astropy row object with gaia_source 
             keywords
-        n_samp (int) - The number of samples to draw [1000]
+        n_samples (int) - The number of samples to draw [1000]
     
     Returns:
         samples (mxn array) - The m samples by n variables array
@@ -72,9 +72,9 @@ def sample_kinematics( data,
     means = np.zeros(5)
     for j in range(5):
         if j == 0 or j == 1:
-            means[j] = tab[i][ps_abbr[j]] * (1000*3600) # Deg -> mas
+            means[j] = data[ps_abbr[j]] * (1000*3600) # Deg -> mas
         else:
-            means[j] = tab[i][ps_abbr[j]]
+            means[j] = data[ps_abbr[j]]
         ##fi
     ###j
     
@@ -83,19 +83,19 @@ def sample_kinematics( data,
     for j in range(5):
         for k in range(5):
             if j == k:
-                cov[j,k] = tab[i][ps_abbr[j]+'_error']**2
+                cov[j,k] = data[ps_abbr[j]+'_error']**2
             else:
                 try:
-                    corr = tab[i][ps_abbr[j]+'_'+ps_abbr[k]+'_corr']
+                    corr = data[ps_abbr[j]+'_'+ps_abbr[k]+'_corr']
                 except KeyError:
-                    corr = tab[i][ps_abbr[k]+'_'+ps_abbr[j]+'_corr']
-                cov[j,k] = tab[i][ps_abbr[j]+'_error'] * tab[i][ps_abbr[k]+'_error'] * corr
+                    corr = data[ps_abbr[k]+'_'+ps_abbr[j]+'_corr']
+                cov[j,k] = data[ps_abbr[j]+'_error'] * data[ps_abbr[k]+'_error'] * corr
             ##ie
         ###k
     ###j
     
     # Sample from the covariance matrix
-    samples = np.random.multivariate_normal( means, cov, size=1000 )
+    samples = np.random.multivariate_normal( means, cov, size=n_samples )
     sample_labels = np.array([r'$\alpha_{off}$ [mas]',
                               r'$\delta_{off}$ [mas]',
                               r'$\pi$',
