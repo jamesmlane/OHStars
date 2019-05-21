@@ -1,0 +1,1 @@
+# rp [kpc], rapo [kpc], Lz [kpc km/s], Tr [Gyr]: median, -err, +err
