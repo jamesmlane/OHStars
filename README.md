@@ -19,3 +19,9 @@ Render this notebook on [NBViewer](http://nbviewer.jupyter.org/github/jamesmlane
 Make plots of the orbits from 5 Gyr into the past to 5 Gyr into the future. Show the orbits in the X-Y and R-Z planes. 
 
 Render this notebook on [NBViewer](http://nbviewer.jupyter.org/github/jamesmlane/OHStars/blob/master/notebooks/3-orbit_plots/orbit_plots.ipynb)
+
+## Notebook 4 - SB02 Sample Kinematics
+
+Derive kinematics for SB02 sample. Plot Actions and try to associated with dGal mergers
+
+Render this notebook on [NBViewer](https://nbviewer.jupyter.org/github/jamesmlane/OHStars/blob/master/notebooks/4-SB02_parameters/SB02_parameters.ipynb)
